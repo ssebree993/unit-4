@@ -47,7 +47,7 @@ window.onload = function(){
 
     //above Example 2.8 line 20
     var x = d3.scaleLinear() //create the scale
-        .range([90, 750]) //output min and max
+        .range([90, 810]) //output min and max
         .domain([0, 3]); //input min and max
 
     //above Example 2.8 line 20
@@ -129,7 +129,7 @@ window.onload = function(){
         .attr("text-anchor", "left")
         .attr("y", function(d){
             //vertical position centered on each circle
-            return y(d.population);
+            return y(d.population) + 5;
         });
 
     //first line of label
@@ -143,10 +143,7 @@ window.onload = function(){
             return d.city;
         });
 
-    //create format generator
-    var format = d3.format(",");
-
-    //Example 3.16 line 1...second line of label
+    //second line of label
     var popLine = labels.append("tspan")
         .attr("class", "popLine")
         .attr("x", function(d,i){
@@ -154,7 +151,7 @@ window.onload = function(){
         })
         .attr("dy", "15") //vertical offset
         .text(function(d){
-            return "Pop. " + format(d.population); //use format generator to format numbers
+            return "Pop. " + d.population;
         });
 
 
